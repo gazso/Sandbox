@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="esComXml">
+<head>
+	<meta charset="UTF-8">
+	<title>ESComXML generator</title>
+	
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="lib/bg-splitter/css/style.css">
+	
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/bg-splitter/js/splitter.js"></script>
+	
+	<script src="js/app.js"></script>
+	
+</head>
+<body ng-controller="mainCtr">
+	
+	<header class="page-header">
+        <h1>ESComXML generator</h1>
+    </header>
+    
+    <style type="text/css">
+    	.pane-wrapper
+    	{
+    		position: relative;
+    		border: 1px solid #aaa;
+    		height: 300px;
+    	}
+    	.pane-container
+    	{
+    		padding: 10px;
+    	}
+    </style>
+    
+    <section>
+	  <div class="pane-wrapper">   
+   	  <bg-splitter orientation="horizontal">
+   	    <bg-pane min-size="100">Section tree</bg-pane>
+   	  	<bg-pane min-size="200">Section details</bg-pane>
+   	  </bg-splitter>
+   	  </div>
+   
+    </section>
+    
+    
+    <footer>
+    	this is the footer
+    </footer>
+	
+	
+</body>
+</html>

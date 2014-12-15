@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.test</groupId>
+	<artifactId>teectrtest</artifactId>
+	<name>TreeControlTest</name>
+	<packaging>war</packaging>
+	<version>1.0.0</version>
+
+	<description>
+    Testing the functionality of tree control together with TypeScritp, bg-splitter etc.
+  	</description>
+
+	<properties>
+		<!-- Version numbers -->
+		<java-version>1.7</java-version>
+	</properties>
+
+
+	<dependencies>
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- maven-compiler -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+			<!-- maven-resources -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>utf-8</encoding>
+				</configuration>
+			</plugin>
+			
+			<!-- maven-war -->
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<version>2.1.1</version>
+				<configuration>
+					<archive>
+						<!-- add bundle plugin generated manifest to the war -->
+						<manifestFile>
+							${project.build.outputDirectory}/META-INF/MANIFEST.MF
+						</manifestFile>
+						<!-- Adding Bundle-ClassPath in maven-bundle-plugin confuses that plugin 
+							and it generates wrong Import-Package, etc. So, we generate it here. -->
+						<manifestEntries>
+							<Bundle-ClassPath>WEB-INF/classes/
+							</Bundle-ClassPath>
+						</manifestEntries>
+					</archive>
+					<!-- We don't always have a web.xml -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+			<!-- maven-surefire -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.16</version>
+				<configuration>
+					<junitArtifactName>junit:junit</junitArtifactName>
+					<excludes>
+						<exclude>**/*_Roo_*</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+
+
